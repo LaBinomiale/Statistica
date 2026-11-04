@@ -5,6 +5,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
+import xlsxwriter
 from datetime import datetime
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
@@ -474,7 +475,7 @@ if pagina == "Dati Storici":
         anno_max = st.slider("Anno massimo", int(df['anno'].min()), int(df['anno'].max()), int(df['anno'].max()))
     
     df_filtrato = df[(df['anno'] >= anno_min) & (df['anno'] <= anno_max)]
-    st.dataframe(df_filtrato.style.format(precision=2), use_container_width=True)
+    st.dataframe(df_filtrato.style.format(precision=2), width="stretch")
     
     # Pulsanti di esportazione
     col1, col2, col3 = st.columns(3)
@@ -559,7 +560,7 @@ elif pagina == "Modelli Previsionali":
                 'Anno': anni_futuri,
                 'Valore Previsto': valori_futuri
             })
-            st.dataframe(df_previsioni.style.format(precision=2), use_container_width=True)
+            st.dataframe(df_previsioni.style.format(precision=2), width="stretch")
 
 # =========================================================================
 # SEZIONE 3: SIMULATORE AVANZATO
