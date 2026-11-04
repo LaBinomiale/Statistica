@@ -6,3 +6,4 @@ scikit-learn
 requests
 xlsxwriter
 seaborn
+pyarrow<25
